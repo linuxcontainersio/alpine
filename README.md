@@ -1,4 +1,4 @@
-# Alpine Linux in Docker with Multilanguage Timezone support
+# Alpine Linux in Docker
 
 [![Docker Automated build](https://img.shields.io/docker/automated/linuxcontainers/alpine.svg?style=for-the-badge&logo=docker)](https://hub.docker.com/r/linuxcontainers/alpine/)
 [![Docker Pulls](https://img.shields.io/docker/pulls/linuxcontainers/alpine.svg?style=for-the-badge&logo=docker)](https://hub.docker.com/r/linuxcontainers/alpine/)
@@ -7,7 +7,7 @@
 
 [![Alpine Version](https://img.shields.io/badge/Alpine%20version-v3.11.6-green.svg?style=for-the-badge)](https://alpinelinux.org/)
 
-This Docker image [(linuxcontainers/alpine)](https://hub.docker.com/r/linuxcontainers/alpine/) is based on the minimal [Alpine Linux](https://alpinelinux.org/) and was a clone of (https://gitlab.com/maurosoft1973-docker/alpine/) which i wanted to learn for myself and if needed alter accordingly .
+This Docker image [(linuxcontainers/alpine)](https://hub.docker.com/r/linuxcontainers/alpine/) is based on the minimal [Alpine Linux](https://alpinelinux.org/).
 
 ##### Alpine Version 3.11.6 (Released Apr 23, 2020)
 
@@ -22,8 +22,6 @@ Alpine Linux is a Linux distribution built around musl libc and BusyBox. The ima
 
 * Minimal size only, minimal layers
 * Memory usage is minimal on a simple install
-* Multilanguage support.
-* Timezone Support
 
 ## Architectures
 
@@ -32,41 +30,3 @@ Alpine Linux is a Linux distribution built around musl libc and BusyBox. The ima
 ## Environment Variables:
 
 ### Main parameters:
-* `LC_ALL`: default locale (en_GB.UTF-8)
-* `TIMEZONE`: default timezone (Europe/GMT)
-
-#### List of locale Sets
-
-When setting locale, also make sure to choose a locale otherwise it will be the default (en_GB.UTF-8).
-
-```
-+-----------------+
-| Locale          |
-+-----------------+
-| ch_DE.UTF-8     |
-| fr_FR.UTF-8     |
-| de_CH.UTF-8     |
-| de_DE.UTF-8     |
-| en_GB.UTF-8     |
-| en_US.UTF-8     |
-| es_ES.UTF-8     |
-| it_IT.UTF-8     |
-| nb_NO.UTF-8     | 
-| nl_NL.UTF-8     |
-| pt_BR.UTF-8     |
-| ru_RU.UTF-8     |
-| sv_SE.UTF-8     |
-+-----------------+
-```
-
-## Creating an instance (default timezone and locale)
-
-```bash
-docker run -it --name alpine linuxcontainers/alpine
-```
-
-## Creating an instance with locale it_IT
-
-```bash
-docker run -it --name alpine -e LC_ALL=it_IT.UTF-8 linuxcontainers/alpine
-```

@@ -1,9 +1,4 @@
-FROM scratch
-
-ARG BUILD_DATE
-
-# set our environment variable
-ENV MUSL_LOCPATH="/usr/share/i18n/locales/musl"
+FROM alpine:3.11
 
 LABEL maintainer="Peter <peter@linuxcontainers.io>" \
     architecture="amd64/x86_64" \
@@ -18,21 +13,15 @@ LABEL maintainer="Peter <peter@linuxcontainers.io>" \
     org.opencontainers.image.source="https://github.com/linuxcontainersio/alpine" \
     org.opencontainers.image.created=$BUILD_DATE
 
-ADD alpine-minirootfs-3.11.6-x86_64.tar.gz /
+ARG BUILD_DATE
+ARG TZ="GMT"
 
-RUN apk update && \
-    apk upgrade && \
-    apk --no-cache add libintl && \
-    apk --no-cache --virtual .locale_build add cmake make musl-dev gcc gettext-dev git && \
-    git clone https://gitlab.com/rilian-la-te/musl-locales && \
-    cd musl-locales && cmake -DLOCALE_PROFILE=OFF -DCMAKE_INSTALL_PREFIX:PATH=/usr . && make && make install && \
-    cd .. && rm -r musl-locales && \
-    apk del .locale_build && \
-    apk add tzdata && \
-    mkdir /scripts
+ENV TZ ${TZ}
 
-COPY files /scripts/
+RUN apk upgrade \
+    && apk add bash tzdata bind-tools busybox-extras wget curl \
+    && ln -sf /usr/share/zoneinfo/${TZ} /etc/localtime \
+    && echo ${TZ} > /etc/timezone \
+    && rm -rf /var/cache/apk/*
 
-RUN chmod -R 755 /scripts
-
-ENTRYPOINT ["/scripts/run-alpine.sh"]
+CMD ["/bin/bash"]
