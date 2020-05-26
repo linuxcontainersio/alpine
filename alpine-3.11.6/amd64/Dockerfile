@@ -19,7 +19,7 @@ ARG TZ="GMT"
 ENV TZ ${TZ}
 
 RUN apk upgrade \
-    && apk add bash tzdata bind-tools busybox-extras wget curl \
+    && apk add bash tzdata wget curl \
     && ln -sf /usr/share/zoneinfo/${TZ} /etc/localtime \
     && echo ${TZ} > /etc/timezone \
     && rm -rf /var/cache/apk/*
