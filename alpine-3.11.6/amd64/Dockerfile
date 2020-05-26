@@ -15,7 +15,7 @@ LABEL maintainer="Peter <peter@linuxcontainers.io>" \
     org.opencontainers.image.vendor="Peter" \
     org.opencontainers.image.version="v3.11.6" \
     org.opencontainers.image.url="https://hub.docker.com/r/linuxcontainers/alpine/" \
-    org.opencontainers.image.source="https://bitbucket.org/linuxcontainers/alpine" \
+    org.opencontainers.image.source="https://github.com/linuxcontainersio/alpine" \
     org.opencontainers.image.created=$BUILD_DATE
 
 ADD alpine-minirootfs-3.11.6-x86_64.tar.gz /
