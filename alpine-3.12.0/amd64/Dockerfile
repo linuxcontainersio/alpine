@@ -1,4 +1,4 @@
-FROM alpine:3.11
+FROM alpine:3.12
 
 LABEL maintainer="Peter <peter@linuxcontainers.io>" \
     architecture="amd64/x86_64" \
@@ -20,9 +20,9 @@ ENV TZ ${TZ}
 
 RUN apk update \
     && apk upgrade \
-    && apk add bash tzdata wget curl \
+    && apk add tzdata wget curl \
     && ln -sf /usr/share/zoneinfo/${TZ} /etc/localtime \
     && echo ${TZ} > /etc/timezone \
     && rm -rf /var/cache/apk/*
 
-CMD ["/bin/bash"]
+CMD ["/bin/ash"]
