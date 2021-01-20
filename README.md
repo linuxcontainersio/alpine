@@ -29,25 +29,3 @@ Alpine Linux is a Linux distribution built around musl libc and BusyBox. The ima
 
 ## Environment Variables:
 
-### Main parameters:
-== Usage
-Stop doing this:
-[source, dockerfile]
-----
-FROM ubuntu-debootstrap:14.04
-RUN apt-get update -q \
-  && DEBIAN_FRONTEND=noninteractive apt-get install -qy mysql-client \
-  && apt-get clean \
-  && rm -rf /var/lib/apt
-ENTRYPOINT ["mysql"]
-----
-This took 28 seconds to build and yields a 169 MB image.
-Start doing this:
-[source, dockerfile]
-----
-FROM alpine:3.12.3
-RUN apk add --no-cache mysql-client
-ENTRYPOINT ["mysql"]
-----
-Only 4 seconds to build and results in a 41 MB image!
-
