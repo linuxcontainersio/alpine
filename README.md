@@ -7,7 +7,7 @@
 
 [![Alpine Version](https://img.shields.io/badge/Alpine%20version-v3.12.3-green.svg?style=for-the-badge)](https://alpinelinux.org/)
 
-This Docker image [(linuxcontainers/alpine)](https://hub.docker.com/r/linuxcontainers/alpine/) is based on the minimal [Alpine Linux](https://alpinelinux.org/).
+This Docker Image [(linuxcontainers/alpine)](https://hub.docker.com/r/linuxcontainers/alpine/) is based on the minimal [Alpine Linux](https://alpinelinux.org/).
 
 ##### Alpine Version 3.12.3 (Released October 21, 2020)
 
@@ -28,4 +28,3 @@ Alpine Linux is a Linux distribution built around musl libc and BusyBox. The ima
 * ```:amd64```, ```:x86_64``` - 64 bit Intel/AMD (x86_64/amd64)
 
 ## Environment Variables:
-
