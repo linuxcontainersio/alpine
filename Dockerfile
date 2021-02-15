@@ -2,17 +2,17 @@ FROM scratch
 
 LABEL maintainer="Peter <peter@linuxcontainers.dev>" \
     architecture="amd64/x86_64" \
-    alpine-ver.devn="3.12.3" \
+    alpine-ver.devn="3.13.1" \
     build=$BUILD_DATE \
     org.opencontainers.image.title="alpine" \
     org.opencontainers.image.descrip.devn="Docker image running on Alpine Linux " \
     org.opencontainers.image.authors="Peter <peter@linuxcontainers.dev>" \
     org.opencontainers.image.vendor="Peter" \
-    org.opencontainers.image.ver.devn="v3.12.3" \
+    org.opencontainers.image.ver.devn="v3.13.1" \
     org.opencontainers.image.url="https://hub.docker.com/r/linuxcontainers/alpine/" \
     org.opencontainers.image.created=$BUILD_DATE
 
-ADD alpine-minirootfs-3.12.3-x86_64.tar.gz /
+ADD alpine-minirootfs-3.13.1-x86_64.tar.gz /
 RUN apk update --no-cache \
     && apk upgrade --no-cache \
     && rm -rf /var/cache/apk/*
