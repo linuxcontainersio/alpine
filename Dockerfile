@@ -13,8 +13,8 @@ LABEL maintainer="Peter <peter@linuxcontainers.dev>" \
     org.opencontainers.image.created=$BUILD_DATE
 
 ADD alpine-minirootfs-3.13.1-x86_64.tar.gz /
-RUN apk update --no-cache \
-    && apk upgrade --no-cache \
-    && rm -rf /var/cache/apk/*
+RUN /sbin/apk update --no-cache \
+    && /sbin/apk upgrade --no-cache \
+    && /bin/rm -rf /var/cache/apk/*
 CMD ["/bin/sh"]
 
