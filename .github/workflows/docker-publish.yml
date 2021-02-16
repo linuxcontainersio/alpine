@@ -40,6 +40,6 @@ jobs:
           push: true
           tags: |
             linuxcontainers/alpine:latest
-            linuxcontainers/alpine:1.0.0
+#            linuxcontainers/alpine:1.0.0
             ghcr.io/linuxcontainers/alpine:latest
-            ghcr.io/linuxcontainers/alpine:1.0.0
+#            ghcr.io/linuxcontainers/alpine:1.0.0
